@@ -21,6 +21,10 @@ import { NuevoSegundoPilarComponent } from '../../pilares/segundoPilarGrid/nuevo
 import { NuevoTercerPilarComponent } from '../../pilares/tercerPilarGrid/nuevoTercerPilar/nuevoTercerPilar.component';
 import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCuartoPilar/nuevoCuartoPilar.component';
 import { AuthGuard } from '../../auth.guard';
+import { LogOutComponent } from '../../logOut/logOut.component';
+
+
+
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',component: HomeComponent, canActivate: [AuthGuard]  },
@@ -41,4 +45,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'nuevoSegundoPilar',component: NuevoSegundoPilarComponent },
     { path: 'nuevoTercerPilar',component: NuevoTercerPilarComponent },
     { path: 'nuevoCuartoPilar',component: NuevoCuartoPilarComponent },
+    { path: 'logOut',component: LogOutComponent },
 ];

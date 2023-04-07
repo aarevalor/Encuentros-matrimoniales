@@ -26,6 +26,7 @@ import { NuevoPrimerPilarComponent } from '../../pilares/primerPilarGrid/nuevoPr
 import { NuevoSegundoPilarComponent } from '../../pilares/segundoPilarGrid/nuevoSegundoPilar/nuevoSegundoPilar.component';
 import { NuevoTercerPilarComponent } from '../../pilares/tercerPilarGrid/nuevoTercerPilar/nuevoTercerPilar.component';
 import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCuartoPilar/nuevoCuartoPilar.component';
+import { LogOutComponent } from '../../logOut/logOut.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCu
   ],
   declarations: [
     HomeComponent,
+    LogOutComponent,
     UserComponent,
     PrimerPilarGridComponent,
     SegundoPilarGridComponent,
@@ -53,7 +55,9 @@ import { NuevoCuartoPilarComponent } from '../../pilares/cuartoPilarGrid/nuevoCu
     NuevoPrimerPilarComponent,
     NuevoSegundoPilarComponent,
     NuevoTercerPilarComponent,
-    NuevoCuartoPilarComponent
+    NuevoCuartoPilarComponent,
+    
+
   ]
 })
 
