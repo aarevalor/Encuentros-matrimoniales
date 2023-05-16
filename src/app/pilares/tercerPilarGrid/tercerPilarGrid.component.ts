@@ -215,7 +215,7 @@ export class TercerPilarGridComponent implements OnInit {
       rows.push(headers);
       console.log(data)
       const responseData = data['response']; // acceder al array 'response' dentro de la respuesta
-
+      const responseData2 = data['totalResponse']; // acceder al array 'response' dentro de la respuesta
       responseData.forEach(item => {
         const row = [
           item.id,
@@ -225,6 +225,15 @@ export class TercerPilarGridComponent implements OnInit {
           item.numDiocesisEstablecidas,
           item.numDiocesisExpansion,
           item.numRegiones  
+        ];
+        rows.push(row);
+      });
+
+      responseData2.forEach(item => {
+        const row = [
+         item.key,
+         item.value,              
+      
         ];
         rows.push(row);
       });
