@@ -1,19 +1,18 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { By } from "@angular/platform-browser";
+import { DebugElement } from "@angular/core";
 
-import { MatrimoniosGridComponent } from './matrimoniosGrid.component';
+import { MatrimoniosGridComponent } from "./matrimoniosGrid.component";
 
-describe('MatrimoniosGridComponent', () => {
+describe("MatrimoniosGridComponent", () => {
   let component: MatrimoniosGridComponent;
   let fixture: ComponentFixture<MatrimoniosGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MatrimoniosGridComponent ]
-    })
-    .compileComponents();
+      declarations: [MatrimoniosGridComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,7 +21,7 @@ describe('MatrimoniosGridComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

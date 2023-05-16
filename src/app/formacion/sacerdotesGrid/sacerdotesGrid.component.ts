@@ -180,18 +180,22 @@ export class SacerdotesGridComponent implements OnInit {
   }
 
   public getTableData2() {
-    let userId = localStorage.getItem('userId');
-    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/getAll?id=${userId}`, this.httpOptions)
-      .subscribe(response => {
+    let userId = localStorage.getItem("userId");
+    this.http
+      .get(
+        `https://encuentro-matrimonial-backend.herokuapp.com/formacion/sacerdote/getAll?id=${userId}`,
+        this.httpOptions
+      )
+      .subscribe((response) => {
         console.log(response); // ver los datos obtenidos en la consola
-        const responseData = response['totalResponse']; // acceder al array 'response' dentro de la respuesta
-        this.tableData2.dataRows = responseData.map(item => {
+        const responseData = response["totalResponse"]; // acceder al array 'response' dentro de la respuesta
+        this.tableData2.dataRows = responseData.map((item) => {
           return {
             key: item.key,
-            value : item.value,
-          }
+            value: item.value,
+          };
         });
-  
+
         this.data = responseData;
       });
   }
@@ -238,7 +242,7 @@ export class SacerdotesGridComponent implements OnInit {
         rows.push(headers);
         console.log(data);
         const responseData = data["response"]; // acceder al array 'response' dentro de la respuesta
-        const responseData2 = data['totalResponse']; // acceder al array 'response' dentro de la respuesta
+        const responseData2 = data["totalResponse"]; // acceder al array 'response' dentro de la respuesta
 
         responseData.forEach((item) => {
           const row = [
@@ -261,12 +265,8 @@ export class SacerdotesGridComponent implements OnInit {
           rows.push(row);
         });
 
-        responseData2.forEach(item => {
-          const row = [
-           item.key,
-           item.value,              
-        
-          ];
+        responseData2.forEach((item) => {
+          const row = [item.key, item.value];
           rows.push(row);
         });
         // Crear una nueva hoja de cálculo de Excel

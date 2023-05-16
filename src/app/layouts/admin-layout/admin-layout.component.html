@@ -1,12 +1,17 @@
 <div class="wrapper">
-  <div class="sidebar" data-color="red" data-image="src\assets\img\sidebar-5.png">
+  <div
+    class="sidebar"
+    data-color="red"
+    data-image="src\assets\img\sidebar-5.png"
+  >
     <app-sidebar></app-sidebar>
   </div>
   <div class="main-panel">
     <navbar-cmp></navbar-cmp>
     <div class="user-section">
       <button class="user-button" routerLink="/perfil">Perfil</button>
-    </div> <!-- Botón de usuario -->   
+    </div>
+    <!-- Botón de usuario -->
     <router-outlet></router-outlet>
     <div *ngIf="isMap('maps')">
       <footer-cmp></footer-cmp>
