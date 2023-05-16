@@ -177,7 +177,7 @@ export class CuartoPilarGridComponent implements OnInit {
     
     public getTableData2() {
       let userId = localStorage.getItem('userId');
-      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
+      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/cuartoPilar/getAll?id=${userId}`, this.httpOptions)
         .subscribe(response => {
           console.log(response); // ver los datos obtenidos en la consola
           const responseData = response['totalResponse']; // acceder al array 'response' dentro de la respuesta
@@ -206,7 +206,7 @@ export class CuartoPilarGridComponent implements OnInit {
     generateExcel(){
       let userId = localStorage.getItem('userId');
       // Realizar la consulta y obtener los datos en un arreglo
-      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/segundoPilar/?id=${userId}`, this.httpOptions)
+      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/cuartoPilar/?id=${userId}`, this.httpOptions)
       .subscribe(data => {
         const rows = [];
     

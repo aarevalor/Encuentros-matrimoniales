@@ -168,7 +168,7 @@ export class TercerPilarGridComponent implements OnInit {
     
     public getTableData2() {
       let userId = localStorage.getItem('userId');
-      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
+      this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/tercerPilar/getAll?id=${userId}`, this.httpOptions)
         .subscribe(response => {
           console.log(response); // ver los datos obtenidos en la consola
           const responseData = response['totalResponse']; // acceder al array 'response' dentro de la respuesta
