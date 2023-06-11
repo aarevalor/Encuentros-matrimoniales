@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import * as XLSX from 'xlsx';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
+//import * as XLSX from 'xlsx';
+import * as ExcelJS from 'exceljs';
+//import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDownloadDialogComponent } from 'app/shared/confirm-download-dialog/confirm-download-dialog.component'; 
 import { ConfirmDeleteComponent } from 'app/shared/confirm-delete/confirm-delete.component';
@@ -201,58 +202,67 @@ export class PrimerPilarGridComponent implements OnInit {
     })
   }
  
-  // Función para generar el archivo Excel
-  generateExcel() {
-    let userId = localStorage.getItem('userId');
 
-    // Realizar la consulta y obtener los datos en un arreglo
-    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
+
+generateExcel() {
+  let userId = localStorage.getItem('userId');
+
+  // Realizar la consulta y obtener los datos en un arreglo
+  this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
     .subscribe(data => {
-      const rows = [];
-
-      // Agregar los encabezados como primera fila
       const headers = ['ID', 'Fecha de Creación', 'Num. FDS', 'Num. Matrimonios Vivieron', 'Num. Sacerdotes Vivieron', 'Num. Religiosos/as Vivieron'];
-      rows.push(headers);
-      console.log(data)
+
       const responseData = data['response']; // acceder al array 'response' dentro de la respuesta
       const responseData2 = data['totalResponse']; // acceder al array 'response' dentro de la respuesta
 
+      // Crear un nuevo libro de Excel
+      const workbook = new ExcelJS.Workbook();
+
+      // Agregar una nueva hoja de cálculo
+      const worksheet = workbook.addWorksheet('Sheet1');
+
+      // Fusionar celdas para el título "Primer Pilar"
+      worksheet.mergeCells('A1:F1');
+
+      // Agregar el título "Primer Pilar" en la celda combinada
+      const titleCell = worksheet.getCell('A1');
+      titleCell.value = 'Primer Pilar';
+      titleCell.alignment = { vertical: 'middle', horizontal: 'center' };
+
+      // Agregar los encabezados como segunda fila
+      worksheet.addRow(headers);
+
+      // Agregar los datos en filas
       responseData.forEach(item => {
-        const row = [
+        worksheet.addRow([
           item.id,
           new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
           item.numFDS,
           item.numMatrinoniosVivieron,
           item.numSacerdotesVivieron,
-          item.numReligiososVivieron  
-        ];
-        rows.push(row);
+          item.numReligiososVivieron
+        ]);
       });
-      responseData2.forEach(item => {
-        const row = [
-         item.key,
-         item.value,              
-      
-        ];
-        rows.push(row);
-      });
-      // Crear una nueva hoja de cálculo de Excel
-      const worksheet = XLSX.utils.aoa_to_sheet(rows);
 
-      // Crear un libro de Excel y agregar la hoja de cálculo
-      const workbook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+      responseData2.forEach(item => {
+        worksheet.addRow([item.key, item.value]);
+      });
 
       // Convertir el libro de Excel a un archivo binario y descargarlo
-      const file = XLSX.write(workbook, { type: 'binary', bookType: 'xlsx' });
-      const blob = new Blob([this.s2ab(file)], { type: 'application/octet-stream' });
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'Primer Pilar.xlsx';
-      link.click();
+      workbook.xlsx.writeBuffer().then(buffer => {
+        const blob = new Blob([buffer], { type: 'application/octet-stream' });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Primer Pilar.xlsx';
+        link.click();
+      });
     });
-  }
+}
+
+  
+
+  
 
   // Función para convertir una cadena a un arreglo de bytes
   s2ab(s: string) {

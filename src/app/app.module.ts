@@ -11,9 +11,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
 import { PaginationComponent } from './pagination/pagination.component';
-
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
