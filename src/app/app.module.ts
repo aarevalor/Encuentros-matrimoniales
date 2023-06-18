@@ -19,6 +19,7 @@ import { ConfirmDownloadDialogComponent } from './shared/confirm-download-dialog
 import { ConfirmDeleteComponent } from './shared/confirm-delete/confirm-delete.component';
 import { ConfirmCreationComponent } from './shared/confirm-creation/confirm-creation.component';
 import { ConfimLoginErrorComponent } from './shared/confim-login-error/confim-login-error.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 
 
@@ -37,7 +38,7 @@ import { ConfimLoginErrorComponent } from './shared/confim-login-error/confim-lo
   ],
 
   entryComponents: [ConfirmDialogComponent],
-  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent, ConfirmDialogComponent, ConfirmDownloadDialogComponent, PaginationComponent, ConfirmDeleteComponent, ConfirmCreationComponent, ConfimLoginErrorComponent],
+  declarations: [AppComponent, AdminLayoutComponent, LoginComponent, RegisterComponent, ConfirmDialogComponent, ConfirmDownloadDialogComponent, PaginationComponent, ConfirmDeleteComponent, ConfirmCreationComponent, ConfimLoginErrorComponent, ReportesComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
