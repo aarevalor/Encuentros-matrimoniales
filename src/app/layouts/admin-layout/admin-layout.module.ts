@@ -32,6 +32,8 @@ import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarM
 import { UsuariosComponent } from 'app/usuarios/usuariosCrear/usuarios.component';
 import { UsuariosEditarComponent } from 'app/usuarios/usuariosEditar/usuariosEditar.component';
 import { PerfilComponent } from 'app/perfil/perfil.component';
+import { ReportesComponent } from 'app/reportes/reportes.component';
+import { ReportesCiudadComponent } from 'app/reportes/reportes-ciudad/reportes-ciudad.component';
 
 @NgModule({
   imports: [
@@ -70,7 +72,9 @@ import { PerfilComponent } from 'app/perfil/perfil.component';
     NuevoMatrimonioComponent,
     EditarMatrimonioComponent,
     UsuariosEditarComponent,
-    PerfilComponent
+    PerfilComponent,
+    ReportesComponent,
+    ReportesCiudadComponent
   ]
 })
 

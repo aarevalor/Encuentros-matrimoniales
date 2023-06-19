@@ -1,0 +1,41 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <h4 class="title"><b>Reportes por ciudad</b></h4>
+                            </div>
+                            <div class="col-sm-4">
+                                
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="number" [(ngModel)]="selectedYear" placeholder="Año" />
+                                <input type="text" [(ngModel)]="selectedCity" placeholder="Ciudad" />
+                                <button type="submit"  class="boton-rojo" (click)="generateExcel()" >Descargar base</button>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <br>
+                                    <button  routerLink="" type="submit" class="boton-rojo">Reportes por Ciudad</button>                                                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -28,6 +28,8 @@ import { NuevoMatrimonioComponent } from 'app/formacion/matrimoniosGrid/nuevoMat
 import { EditarMatrimonioComponent } from 'app/formacion/matrimoniosGrid/editarMatrimonio/editarMatrimonio.component';
 import { UsuariosEditarComponent } from 'app/usuarios/usuariosEditar/usuariosEditar.component';
 import { PerfilComponent } from 'app/perfil/perfil.component';
+import { ReportesComponent } from 'app/reportes/reportes.component';
+import { ReportesCiudadComponent } from 'app/reportes/reportes-ciudad/reportes-ciudad.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -57,7 +59,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editarMatrimonio/:id',component: EditarMatrimonioComponent, canActivate: [AuthGuard] },
     { path: 'nuevoSacerdote',component: NuevoSacerdoteComponent, canActivate: [AuthGuard] },
     { path: 'editarSacerdote/:id',component: EditarSacerdoteComponent, canActivate: [AuthGuard] },
+    { path: 'reportes',component: ReportesComponent, canActivate: [AuthGuard] },
     { path: 'perfil',component: PerfilComponent, canActivate: [AuthGuard] },
+    { path: 'reportesCiudad',component: ReportesCiudadComponent, canActivate: [AuthGuard] }
 
 
 ];
