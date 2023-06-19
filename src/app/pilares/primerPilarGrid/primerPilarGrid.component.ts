@@ -11,6 +11,7 @@ declare interface TableData {
     dataRows: string[][];
 }
 
+
 @Component({
   selector: 'app-primerPilarGrid',
   templateUrl: './primerPilarGrid.component.html',
@@ -204,25 +205,15 @@ export class PrimerPilarGridComponent implements OnInit {
 
   generateExcel() {
     let userId = localStorage.getItem('userId');
+    let year = 2022;
   
     // Realizar la consulta y obtener los datos en un arreglo
-    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}`, this.httpOptions)
+    this.http.get(`https://encuentro-matrimonial-backend.herokuapp.com/pilar/primerPilar/getAll?id=${userId}&year=${year}`, this.httpOptions)
       .subscribe(data => {
         const headers = ['ID', 'Fecha de Creación', 'Num. FDS', 'Num. Matrimonios Vivieron', 'Num. Sacerdotes Vivieron', 'Num. Religiosos/as Vivieron'];
   
         const responseData = data['response']; // acceder al array 'response' dentro de la respuesta
         const responseData2 = data['totalResponse']; // acceder al array 'response' dentro de la respuesta
-  
-        // Filtrar los datos por el año 2022
-        const filteredData = responseData.filter(item => {
-          const itemYear = new Date(item.fechaCreacion).getFullYear();
-          return itemYear === 2022;
-        });
-  
-        // Filtrar los datos adicionales por el año 2022 (si es necesario)
-        // const filteredData2 = responseData2.filter(item => {
-        //   // Realiza la lógica de filtrado adicional si es necesario
-        // });
   
         // Crear un nuevo libro de Excel
         const workbook = new ExcelJS.Workbook();
@@ -242,7 +233,7 @@ export class PrimerPilarGridComponent implements OnInit {
         const headerRow = worksheet.addRow(headers);
   
         // Obtener los datos en forma de matriz
-        const dataMatrix = filteredData.map(item => [
+        const dataMatrix = responseData.map(item => [
           item.id,
           new Date(item.fechaCreacion).toLocaleDateString('es-ES'),
           item.numFDS,
@@ -284,7 +275,6 @@ export class PrimerPilarGridComponent implements OnInit {
   transpose(matrix) {
     return matrix[0].map((col, i) => matrix.map(row => row[i]));
   }
-  
   
   
   

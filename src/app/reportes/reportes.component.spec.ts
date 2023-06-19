@@ -1,4 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {Router} from '@angular/router';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
 import { ReportesComponent } from './reportes.component';
 

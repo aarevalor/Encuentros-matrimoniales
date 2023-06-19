@@ -31,7 +31,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/matrimoniosGrid', title: 'Formación', icon:'', class: '', type:'link' },    
     { path: '/matrimoniosGrid', title: 'Matrimonios',  icon:'pe-7s-leaf', class: '', type:'link' },
     { path: '/sacerdotesGrid', title: 'Sacerdotes',  icon:'pe-7s-id', class: '', type:'link' },
+    { path: '/reportes', title: 'Reportes',  icon:'pe-7s-id', class: '', type:'link' },
     { path: '/login', title: 'Cerrar sesión',  icon:'pe-7s-power', class: '', type:'link' },
+    
     ]
 
 @Component({
